@@ -1,0 +1,25 @@
+site_name: SR
+
+site_author: sweetser@alum.mit.edu
+
+theme_dir: spacelab-mod
+
+dev_addr: 127.0.0.1:8004
+
+google_analytics: ['UA-9710248-1', 'quaternions.com']
+
+markdown_extensions: [include, subscript, superscript]
+
+pages:
+- [index.md, '']
+- [SR/special_relativity.md, SR, Special Relativity (SR)]
+- [SR/problem_sets.md, SR, Problem sets]
+- [SR/problem_set_1.md, SR, Problem set 1]
+- [SR/problem_set_2.md, SR, Problem set 2]
+- [SR/problem_set_3.md, SR, Problem set 3]
+- [SR/problem_set_4.md, SR, Problem set 4]
+- [SR/problem_set_5.md, SR, Problem set 5]
+- [SR/problem_set_6.md, SR, Problem set 6]
+- [About/professional_sketch.md, About, Professional sketch]
+- [About/personal_sketch.md, About, Personal Sketch]
+- [About/contact_and_tip.md, About, Contact and tips]

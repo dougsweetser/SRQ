@@ -1,0 +1,202 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Doug Sweetser">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; Linux 2.4.9-k6 i586) [Netscape]">
+   <title>Quaternion Equations driving aniMation</title>
+</head>
+<body text="#000000" bgcolor="#E9E9E9" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+&nbsp;
+<center><table COLS=4 WIDTH="650" NOSAVE >
+<tr NOSAVE>
+<td VALIGN=TOP NOSAVE><font size=+2>QEMation</font>
+<br>&nbsp; Quaternion
+<br>&nbsp; Equation
+<br>&nbsp; aniMation</td>
+
+<td VALIGN=TOP><font size=+1>The Vision Thing</font>
+<br>&nbsp; <a href="#BIG">The BIG picture</a>
+<br>&nbsp; <a href="#long">L&nbsp; O&nbsp; N&nbsp; G term</a>
+<br>&nbsp; <a href="#Demos">Demos</a></td>
+
+<td VALIGN=TOP><font size=+1>Development</font>
+<br>&nbsp; <a href="#Projects">Scope (projects)</a>
+<br>&nbsp; <a href="#Quality">Quality</a>
+<br><font size=-2>&nbsp; </font><a href="#Management">Management</a></td>
+
+<td WIDTH="100"><img SRC="4balls.png" height=40 width=37></td>
+</tr>
+</table></center>
+
+<center><a NAME="Vision"></a><font size=+1>Vision</font></center>
+
+<center><table BORDER COLS=1 WIDTH="80%" >
+<tr>
+<td><b>The&nbsp;<a NAME="BIG"></a>BIG picture</b>
+<br>This is an open source project to use quaternion equations to drive
+animations. Quaternions are like the real numbers, but they contain 4 slots,
+one for time, three others for space. Very fast manipulation of quaternion
+equations on large data sets may generate interesting images. The animations
+should be viewable on personal computers and the Internet.</td>
+</tr>
+
+<tr>
+<td><a NAME="long"></a><b>L&nbsp; O&nbsp; N&nbsp; G&nbsp; term goal</b>
+<br>Quaternion equations have been used to do <a href="http://quaternions.com">physics</a>,
+ranging from classical physics, to the Maxwell equations, and into Quantum
+Mechanics. It should be possible to use the equations for a hydrogen atom
+to generate a technically accurate picture of the atom in various states.
+Someday it may be possible to generate an animation of two hydrogen atoms
+fusing to form a helium atom.</td>
+</tr>
+
+<tr>
+<td><a NAME="Demos"></a><b>Demos</b>
+<br>Qlib <a href="Testq.html">tests</a>, numberical functions in C ported
+to javascript</td>
+</tr>
+</table></center>
+
+<center>
+<p><font size=+1>Development</font></center>
+
+<center><table BORDER COLS=1 WIDTH="80%" >
+<tr>
+<td><a NAME="Projects"></a><font size=+2>Scope (projects)</font>: Qlib,
+QEMation, CLQ, Qcalc, Qdb, c2js</td>
+</tr>
+
+<tr>
+<td><b>Qlib</b>: the library of fast quaternion mathematics for large data
+sets
+<br>This is the core software, the number cruncher. To optimize for speed
+and portability, it is written as a collection of functions because all
+languages use functions. Objects are used minimally, since that requires
+memory operations.</td>
+</tr>
+
+<tr>
+<td><b>Qemation</b>: input an equation and initial conditions such as the
+hydrogen atom in quantum mechanics, and outputs an animation</td>
+</tr>
+
+<tr>
+<td><b>Qcalc</b>: a calculator that uses quaternion mathematics.
+<br>Anyone know of a good open source scientific calculator to use as a
+starting point?</td>
+</tr>
+
+<tr>
+<td><b>CLQ</b>: <b>C</b>ommand <b>L</b>ine <b>Q</b>uaternions
+<br>A command line interface to a quaternion library.&nbsp; Involves only
+numberical manipulation of quaternions, no data structures.&nbsp; <a href="clq-0.1.tar.gz">clq-0.1.tar.gz</a>, 
+<a href="http://www.TheWorld.com/~sweetser/quaternions/qemation/clq_0.1-1_i386.deb">Debian package</a>, 
+or <a href="http://www.TheWorld.com/~sweetser/quaternions/qemation/clq-0.1-2_i386.deb">RPM package</a>, 
+files available.</td>
+</tr>
+
+<tr> <td> <b>q_fractal</b> <br>Given an integer N, and a quaternion
+from the commands line, calculates q_n+1 = q_n^2 - 1, n times, unless
++/- 10,000 is reached and the program exits.  Results are printed on
+the command line.  No attempt is made to generate a picture.  This is
+only a number generating program.  Here is the code, <a
+href="http://TheWorld.com/~sweetser/quaternions/qemation/q_fractal-0.1.tar.gz">q_fractal-0.1.tar.gz</a>.
+</td> </tr>
+
+<tr>
+<td><b>Qdb</b>: A database for interesting quaternion equations and structures</td>
+</tr>
+
+<tr>
+<td><b>c2js:</b> translates quaternion programs written in c into javascript
+<br>Javascript is a hack of a language, but it is fast for browsers. This
+program will take functions required from qlib and qemation and convert
+that into javascript.</td>
+</tr>
+</table></center>
+
+<br>&nbsp;
+<center><table BORDER COLS=1 WIDTH="80%" >
+<tr>
+<td><a NAME="Quality"></a><font size=+2>Quality</font></td>
+</tr>
+
+<tr>
+<td><b>Accuracy</b>
+<br>The output of all math functions must be checked against duplicates
+in Mathematica.</td>
+</tr>
+
+<tr>
+<td><b>Speed</b>
+<br>If a scene has several thousand objects that are moving independently
+and need to be viewed from two closely-spaced vantage point (for 3D effects),
+many calculations are required per frame. Benchmarks for each function
+need to be developed, so that even small differences in code that make
+speed improvements on large data sets can be confirmed.</td>
+</tr>
+</table></center>
+
+<br>&nbsp;
+<center><table BORDER COLS=1 WIDTH="80%" >
+<tr>
+<td><a NAME="Management"></a><font size=+2>Management Stuff</font></td>
+</tr>
+
+<tr>
+<td><b>Software Development Lifecycle</b>: Evolutionary Prototyping
+<br>Evolution involves PROVING superiority, not about telling a tall tale.&nbsp;
+Any function call in these programs can be replaced if a side-by-side test
+program can demonstrate that it works faster.</td>
+</tr>
+
+<tr>
+<td><b>Project Organization</b>
+<br>This web site will be data central. A mailing list service will be
+used for announcements. To subscribe, send email to majordomo@world.com
+without a subject that contains "subscribe quaternions" in the body.</td>
+</tr>
+
+<tr>
+<td><b>Project Control</b>: tar &amp; feathered dictator
+<br>Doug Sweetser will act as an informal dictator.&nbsp; Files will be
+gzipped and tarred. If three people begin actually contributing source
+code, the I'll reserve a domain names and move this to sourceforge. Anyone
+will to send their precious free time developing cool mathematical physics
+code deserves the best :-)</td>
+</tr>
+
+<tr>
+<td><b>Priorities</b>: 1. Scope, 2. Quality, <font size=-2>3. schedule,
+4. cost</font>
+<br>A commercial software project has these four parameters, but this open
+source work really only involves the first two. The primary objective is
+to be able to play with quaternions in new ways. The secondary criteria
+is that the software works well, and works fast. There is no time table
+or budget beyond supporting this web page, so have fun defining the requirements
+and coding.</td>
+</tr>
+
+<tr>
+<td><b>Copyrights and License</b>: GNU General Public License, version
+2 (GPL)
+<br>Copyright (C) 2000 Douglas B Sweetser &lt;sweetser@alum.mit.edu>
+<br>Please see the <a href="gpl.txt">GPL</a> for details.</td>
+</tr>
+</table></center>
+
+<center>
+<hr SIZE=1 WIDTH="100%">
+<p><font face="Times New Roman, Times, serif"><font size=+0><a href="../../index.html">Home
+Page</a> | <a href="../qindex/qindex.html">Quaternion Physics</a> | <a href="../../PopScience/PopIndex/PopIndex.html">Pop
+Science</a></font></font>
+<br><font face="Times New Roman, Times, serif"><font size=+0><a href="../../java/javaindex.html">Java</a>
+| <a href="../../bike/bike.html">The Bike</a> | <a href="../../LindyHop/LindyHop.html">Lindy
+Hop</a> | <a href="mailto:sweetser@alum.mit.edu">Contact Doug</a></font></font>
+<p><font size=-2>Copyright &copy; 2000, doug &lt;sweetser@alum.mit.edu>
+All rights reserved worldwide.</font>
+<p><img SRC="Count.cgi" ></center>
+
+</body>
+</html>

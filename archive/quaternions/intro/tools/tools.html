@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+
+<!-- This HTML document was created by converting a Mathematica notebook using HTMLSave. -->
+
+
+
+<HTML>
+
+
+<HEAD >
+
+<TITLE>
+  Quaternion Math Tools
+</TITLE>
+
+
+
+</HEAD>
+
+
+<BODY BGCOLOR="#FFFFFF">
+
+
+
+<a name="tools"></a>
+<a name="section"></a><a name="tools" name="section" >
+<H3>
+
+A Quaternion Algebra Tool Set
+</H3>
+</a>
+
+<a name="webtoc"></a>
+<a name="minus_tex"></a><a name="webtoc" name="minus_tex" >
+<P><FONT COLOR="#0000FF"><a href="#tools.parts">Parts</a></FONT><br><FONT COLOR="#0000FF"><a href="#tools.algebra">Simple algebra</a></FONT><br><FONT COLOR="#0000FF"><a href="#tools.multiplication">Multiplication</a></FONT><br><FONT COLOR="#0000FF"><a href="#tools.trig">Trig</a></FONT><br><FONT COLOR="#0000FF"><a href="#tools.powers">Powers</a></FONT><br><FONT COLOR="#0000FF"><a href="#tools.logs">Logs</a></FONT><br><FONT COLOR="#0000FF"><a href="#tools.exp">Multiplying by exponentials</a></FONT></P>
+
+</a>
+<P>
+
+Here is a compilation of basic algebra for quaternions.&nbsp;&nbsp;It should look very similar to complex algebra, since it contains three sets of complex numbers, t + x i, t + y j, and t + z k.&nbsp;&nbsp;To strengthen the link, and keep things looking simpler, all quaternions have been written as a pair of a scalar t and a 3-vector V, as in (t, V).&nbsp;&nbsp;All these relations have been tested in a C library and a Java quaternion calculator.
+</P>
+<P>
+
+Technical note: it is vital that every tool in this set can be expressed as working with a whole quaternion q.&nbsp;&nbsp;This will make doing quaternion analysis with automorphic functions fruitful.
+</P>
+
+
+<a name="tools.parts"></a>
+<a name="subsection"></a><a name="tools.parts" name="subsection" >
+<H4>
+
+Parts
+</H4>
+</a>
+
+<IMG SRC="../Images/s_gr_1.gif"  BORDER="0"   ALT="The scalar of q equals q plus its conjugate over two equals (t, zero)"  hspace="56."  WIDTH="321" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_2.gif"  BORDER="0"   ALT="The vector of q equals q minus its conjugate over two equals (zero, V)"  hspace="56."  WIDTH="321" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+
+
+<a name="tools.algebra"></a>
+<a name="subsection"></a><a name="tools.algebra" name="subsection" >
+<H4>
+
+Simple algebra
+</H4>
+</a>
+
+<IMG SRC="../Images/s_gr_3.gif"  BORDER="0"   ALT="The absolute value of q equals the square root of q times its conjugate equals (the square root of t squared plus V dot V, 0)"  hspace="56."  WIDTH="316" HEIGHT="28"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_4.gif"  BORDER="0"   ALT="The norm of q equals q times its conjugate equals (t squared plus V dot V, 0)"  hspace="56."  WIDTH="287" HEIGHT="22"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_5.gif"  BORDER="0"   ALT="The determinant of q equals q times its conjugate squared equals (the square of t squared plus V dot V, 0)"  hspace="56."  WIDTH="341" HEIGHT="28"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_6.gif"  BORDER="0"   ALT="The sum of q and q prime equals (t plus t', V plus V')"  hspace="56."  WIDTH="289" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_7.gif"  BORDER="0"   ALT="The difference of q and q prime equals (t minus t', V minus V')"  hspace="56."  WIDTH="289" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_8.gif"  BORDER="0"   ALT="The conjugate of q equals q* equals (t, minus V)"  hspace="56."  WIDTH="226" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_9.gif"  BORDER="0"   ALT="The inverse of q equal q conjugated over its norm equals (t, -V) over (t squared plus V dot V)."  hspace="56."  WIDTH="410" HEIGHT="22"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_10.gif"  BORDER="0"   ALT="The adjoint of q equals q conjugated times its norm equals (t, -V) times (t squared plus V dot V)."  hspace="56."  WIDTH="367" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+
+
+<a name="tools.multiplication"></a>
+<a name="subsection"></a><a name="tools.multiplication" name="subsection" >
+<H4>
+
+Multiplication
+</H4>
+</a>
+<P>
+
+The Grassman product as defined here uses the same rule Hamilton developed.&nbsp;&nbsp;The Euclidean product takes the conjugate of the first of the two elements (following a tradition from quantum mechanics).
+</P>
+
+<IMG SRC="../Images/s_gr_11.gif"  BORDER="0"   ALT="The Grassman product of q and q' equals q times q prime equals (t t prime minus V dot V prime, t V prime plus V t prime plus V cross V prime)."  hspace="56."  WIDTH="643" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_12.gif"  BORDER="0"   ALT="The Grassman even product of q and q' equals q times q prime plus q prime q over two equals (t t prime minus V dot V prime, t V prime plus V t prime)."  hspace="56."  WIDTH="702" HEIGHT="38"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_13.gif"  BORDER="0"   ALT="The Grassman odd product of q and q' equals q times q prime minus q prime q over two equals (zero, V cross V prime)."  hspace="56."  WIDTH="563" HEIGHT="38"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_14.gif"  BORDER="0"   ALT="The Euclidean product of q and q' equals q conjugated times q prime equals (t t prime plus V dot V prime, t V prime minus V t prime minus V cross V prime)."  hspace="56."  WIDTH="671" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_15.gif"  BORDER="0"   ALT="The Euclidean even product of q and q' equals q conjugated times q prime plus q prime q conjugated over two equals (t t prime plus V dot V prime, zero)."  hspace="56."  WIDTH="665" HEIGHT="38"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_16.gif"  BORDER="0"   ALT="The Euclidean odd product of q and q' equals q conjugated times q prime minus q prime q conjugated over two equals (zero, t V prime minus V t prime minus V cross V prime)."  hspace="56."  WIDTH="575" HEIGHT="34" ALIGN="absmiddle" ></P>
+</a>
+
+
+
+<a name="tools.trig"></a>
+<a name="subsection"></a><a name="tools.trig" name="subsection" >
+<H4>
+
+Trigonometry
+</H4>
+</a>
+
+<IMG SRC="../Images/s_gr_17.gif"  BORDER="0"   ALT="The sine of q equals (sin t hyperbolic cosine absolute value of V, cosine t hyperbolic sine of the absolute value of V times V normalized to V)"  hspace="56."  WIDTH="600" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_18.gif"  BORDER="0"   ALT="The cosine of q equals (cos t hyperbolic cosine absolute value of V, minus sine t hyperbolic sine of the absolute value of V times V normalized to V)"  hspace="56."  WIDTH="612" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_19.gif"  BORDER="0"   ALT="The tangent of q equals the sine of q times the inverse of the cosine of q"  hspace="56."  WIDTH="257" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+Note: since the unit vectors of sine and cosine are the same, these two commute so the order is irrelevant.
+</P>
+
+<IMG SRC="../Images/s_gr_20.gif"  BORDER="0"   ALT="The arcsine of q equals minus V normalized to V times the hyperbolic arcsine of q times V normalized to V."  hspace="56."  WIDTH="366" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_21.gif"  BORDER="0"   ALT="The arccosine of q equals minus V normalized to V times the hyperbolic arccosine of q."  hspace="56."  WIDTH="289" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_22.gif"  BORDER="0"   ALT="The arctangent of q equals minus V normalized to V times the hyperbolic arctangent of q times V normalized to V."  hspace="56."  WIDTH="366" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_23.gif"  BORDER="0"   ALT="The hyperbolic sine of q equals (hyperbolic sin t cosine absolute value of V, hyperbolic cosine t sine of the absolute value of V times V normalized to V)"  hspace="56."  WIDTH="611" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_24.gif"  BORDER="0"   ALT="The hyperbolic cosine of q equals (hyperbolic cos t cosine absolute value of V, hyperbolic sine t sine of the absolute value of V times V normalized to V)"  hspace="56."  WIDTH="611" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_25.gif"  BORDER="0"   ALT="The hyperbolic tangent of q equals the hyperbolic sine of q times the inverse of the hyperbolic cosine of q"  hspace="56."  WIDTH="290" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_26.gif"  BORDER="0"   ALT="The hyperbolic arcsine of q equals the natural log of (q plus the square root of q squared plus q)."  hspace="56."  WIDTH="327" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_27.gif"  BORDER="0"   ALT="The hyperbolic arccosine of q equals the natural log of (q plus or minus the square root of q squared minus one)."  hspace="56."  WIDTH="356" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_28.gif"  BORDER="0"   ALT="The hyperbolic arctangent of q equals one half times the natural log of (one plus q over one minus q)."  hspace="56."  WIDTH="341" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+
+
+<a name="tools.powers"></a>
+<a name="subsection"></a><a name="tools.powers" name="subsection" >
+<H4>
+
+Powers
+</H4>
+</a>
+
+<IMG SRC="../Images/s_gr_29.gif"  BORDER="0"   ALT="The exponential of q equals (e to the t cosine absolute value of V, e to the t sine of the absolute value of V times V normalized to V)"  hspace="56."  WIDTH="578" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_30.gif"  BORDER="0"   ALT="q raised to the q prime equals the exponential of the natural log of q time q prime."  hspace="56."  WIDTH="242" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+
+
+<a name="tools.logs"></a>
+<a name="subsection"></a><a name="tools.logs" name="subsection" >
+<H4>
+
+Logs
+</H4>
+</a>
+
+<IMG SRC="../Images/s_gr_31.gif"  BORDER="0"   ALT="The natural log of q equals (one half times the natural log of t squared plus V dot V, the arctan of absolute value of V, angle t time V normalized to V."  hspace="56."  WIDTH="536" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_32.gif"  BORDER="0"   ALT="The log base 10 equals the natural log of q over the natural log of 10."  hspace="56."  WIDTH="246" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+
+
+<a name="tools.exp"></a>
+<a name="subsection"></a><a name="tools.exp" name="subsection" >
+<H4>
+
+Quaternion exponential multiplication
+</H4>
+</a>
+
+<IMG SRC="../Images/s_gr_33.gif"  BORDER="0"   ALT="The Grassman product of two exponentials q and q' equals the even Grassman product times the absolute value of the odd Grassman product times the exponential of pi over 2 times the odd Grassman product normalized to itself."  hspace="56."  WIDTH="571" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="../Images/s_gr_34.gif"  BORDER="0"   ALT="The Euclidean product of two exponentials q and q' equals the even Euclidean product times the absolute value of the odd Euclidean product times the exponential of pi over 2 times the odd Euclidean product normalized to itself."  hspace="56."  WIDTH="641" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+Andrew Millard suggested the result for the Grassman product.
+</P>
+
+
+
+
+<hr size = "1">
+<center>
+<A HREF="http://greenspun.com/bboard/q-and-a.tcl?topic=quaternions">Comments & Questions</a>
+<BR>
+<BR>
+Next: <a href="../../relativity/rotationdilation/rotationdilation.html">Special relativity with rotations and dilations</a>
+<p><font face="Times New Roman, Times, serif"><font size=+0><a href="../../../index.html">Home
+Page</a> | <a href="../../qindex/qindex.html">Quaternion Physics</a> |
+<a href="../../../PopScience/PopIndex/PopIndex.html">Pop
+Science</a></font></font>
+<br><font face="Times New Roman, Times, serif"><font size=+0><a href="../../../java/javaindex.html">Java</a>
+| <a href="../../../bike/bike.html">The Bike</a> | <a href="../../../LindyHop/LindyHop.html">Lindy
+Hop</a> | <a href="mailto:sweetser@alum.mit.edu">Contact Doug</a></font></font>
+<p><font size=-1>Copyright &copy; 1997, doug &lt;sweetser@alum.mit.edu&gt;  All rights reserved
+worldwide</font></center>
+
+</body>
+</html>

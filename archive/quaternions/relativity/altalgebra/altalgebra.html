@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+
+<!-- This HTML document was created by converting a Mathematica notebook using HTMLSave. -->
+
+
+
+<HTML>
+
+
+<HEAD >
+
+<TITLE>
+  An Alternative Algebra for Boosts
+</TITLE>
+
+
+
+</HEAD>
+
+
+<BODY BGCOLOR="#FFFFFF">
+
+
+
+<a name="altalgebra"></a>
+<a name="section"></a><a name="altalgebra" name="section" >
+<H3>
+
+An Alternative Algebra for Lorentz Boosts
+</H3>
+</a>
+
+<a name="webtoc"></a>
+<a name="minus_tex"></a><a name="webtoc" name="minus_tex" >
+<P><FONT COLOR="#0000FF"><a href="#alt.tools">The Tools of Special Relativity</a></FONT><br><FONT COLOR="#0000FF"><a href="#alt.using">Using Quaternions to Do Special Relativity</a></FONT><br><FONT COLOR="#0000FF"><a href="#alt.in_practice">Using Quaternions in Practice</a></FONT><br><FONT COLOR="#0000FF"><a href="#alt.implications">Implications</a></FONT></P>
+
+</a>
+<P>
+
+Many problems in physics are expressed efficiently as differential equations whose solutions are dictated by calculus.&nbsp;&nbsp;The foundations of calculus were shown in turn to rely on the properties of fields (the mathematical variety, not the ones in physics).&nbsp;&nbsp;According to the theorem of Frobenius, there are only three finite dimensional fields: the real numbers (1D), the complex numbers (2D), and the quaternions (4D).&nbsp;&nbsp;Special relativity stresses the importance of 4-dimensional Minkowski spaces: spacetime, energy-momentum, and the electromagnetic potential.&nbsp;&nbsp;In this notebook, events in spacetime will be treated as the 4-dimensional field of quaternions.&nbsp;&nbsp;It will be shown that problems involving boosts along an axis of a reference frame can be solved with this approach.
+</P>
+
+
+<a name="alt.tools"></a><a name="alt.tools" >
+<H4>
+
+The Tools of Special Relativity
+</H4>
+</a>
+<P>
+
+Three mathematical tools are required to solve problems that arise in special relativity.&nbsp;&nbsp;Events are represented as 4-vectors, which can be add or subtracted, or multiplied by a scalar.&nbsp;&nbsp;To form an inner product between two vectors requires the Minkowski metric, which can be represented by the following matrix (where c = 1).
+</P>
+
+<IMG SRC="Images/s_gr_1.gif"  BORDER="0"   ALT="g_mu^nu = matrix((1,0, 0, 0),(0, -1, 0, 0),(0,0, -1, 0),(0,0,0, -1))"  hspace="56."  WIDTH="222" HEIGHT="91"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_2.gif"  BORDER="0"   ALT="the 4-vector {t, x, y, z}dot g_mu^nu dot the 4-vector {t, x, y, z} = t squared - x squared - y squared - z squared "  hspace="56."  WIDTH="469" HEIGHT="23"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+The Lorentz group is defined as the set of matrices that preserves the inner product of two 4-vectors.&nbsp;&nbsp;A member of this group is for boosts along the x axis, which can be easily defined.
+</P>
+
+<IMG SRC="Images/s_gr_3.gif"  BORDER="0"   ALT="gamma = 1 over the root of 1 - beta squared"  hspace="56."  WIDTH="140" HEIGHT="47"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_4.gif"  BORDER="0"   ALT="Lamba sub x = the matrix ((gamma, - beta gamma, 0, 0)(- beta gamma, gamma, 0, 0)(0, 0, 1, 0)(0, 0, 0, 1))"  hspace="56."  WIDTH="298" HEIGHT="91"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+<FONT FACE="Symbol">&Tau;</FONT>he boosted 4-vector is
+</P>
+
+<IMG SRC="Images/s_gr_5.gif"  BORDER="0"   ALT="lambda sub x dot the 4-vector {t, x, y, z} = the 4-vector {gamma t-gamma beta x, gamma x-gamma beta t, y, z}"  hspace="56."  WIDTH="641" HEIGHT="46"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+To demonstrate that the interval has been preserved, calculate the inner product.
+</P>
+
+<IMG SRC="Images/s_gr_6.gif"  BORDER="0"   ALT="lambda dot the 4-vector {t, x, y, z} dot g_mu^nu  lambda  (t, x, y, z) = t squared -x squared -y squared -z squared "  hspace="56."  WIDTH="542" HEIGHT="23"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+Starting from a 4-vector, this is the only way to boost a reference frame along the x axis to another 4-vector and preserve the inner product.&nbsp;&nbsp;However, it is not clear why one must necessarily start from a 4-vector.
+</P>
+
+
+
+<a name="alt.using"></a>
+<a name="subsection"></a><a name="alt.using" name="subsection" >
+<H4>
+
+Using Quaternions in Special Relativity
+</H4>
+</a>
+<P>
+
+Events are treated as quaternions, a skew field or division algebra that is 4 dimensional.&nbsp;&nbsp;Any tool built to manipulate quaternions will also be a quaternion.&nbsp;&nbsp;In this way, although events play a different role from operators, they are made of identical mathematical fabric.
+</P>
+<P>
+
+a squared quaternion is
+</P>
+
+<IMG SRC="Images/s_gr_7.gif"  BORDER="0"   ALT="(t, X) squared = (t squared - X dot X, 2 t X)"  hspace="56."  WIDTH="257" HEIGHT="26"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+The first term of squaring a quaternion is the invariant interval squared.&nbsp;&nbsp;There is implicitly, a form of the Minkowski metric that is part of the rules of quaternion multiplication.&nbsp;&nbsp;The vector portion is frame-dependent.&nbsp;&nbsp;If a set of quaternions can be found that do not alter the interval, then that set would serve the same role as the Lorentz group, acting on quaternions, not on 4-vectors.&nbsp;&nbsp;If two 4-vectors x and x' are known to have the property that their intervals are identical, then the first term of squaring q[x] and q[x'] will be identical.&nbsp;&nbsp;Because quaternions are a division ring, there must exist a quaternion L such that L q[x] = q[x'] since L = q[x'] q[x]^-1.&nbsp;&nbsp;&nbsp;The inverse of a quaternion is its transpose over the square of the norm (which is the first term of transpose of a quaternion times itself).&nbsp;&nbsp;Apply this approach to determine L for 4-vectors boosted along the x axis.
+</P>
+
+<IMG SRC="Images/s_gr_8.gif"  BORDER="0"   ALT="L is defined to be (gamma t - beta gamma x,  - beta gamma t + gamma x, y, z) times (t, x, y, z) inverted ="  hspace="56."  WIDTH="508" HEIGHT="22"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_9.gif"  BORDER="0"   ALT="=  (gamma t squared +gamma x squared - 2 beta gamma t x + y squared + z squared, beta gamma (-t squared +x squared ),over (t squared + x squared + y squared + z squared )"  hspace="56."  WIDTH="487" HEIGHT="92"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+Define the Lorentz boost quaternion L along x using this equations.&nbsp;&nbsp;L depends on the relative velocity and position, making it &quot;local&quot; in a sense. See if&nbsp;&nbsp;L q[x] = q[x'].
+</P>
+
+<IMG SRC="Images/s_gr_10.gif"  BORDER="0"   ALT="L a function of (t, x, y, z, beta) times (t, x, y, z) = (gamma t - gamma beta x , - gamma beta t + gamma x, y, z)"  hspace="56."  WIDTH="677" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+This is a quaternion composed of the boosted 4-vector.&nbsp;&nbsp;At this point, it can be said that _any_ problem that can be solved using 4-vectors, the Minkowski metric and a Lorentz boost along the x axis can also be solved using the above quaternion for boosting the event quaternion.&nbsp;&nbsp;This is because both techniques transform the same set of 4 numbers to the same new set of 4 numbers using the same variable beta.&nbsp;&nbsp;To see this work in practice, please examine the problem sets.
+</P>
+<P>
+
+Confirm the interval is unchanged.
+</P>
+
+<IMG SRC="Images/s_gr_11.gif"  BORDER="0"   ALT="(L times (t, x, y, z)) squared ="  hspace="56."  WIDTH="202" HEIGHT="22"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_12.gif"  BORDER="0"   ALT="= (t squared -x squared -y squared -z squared , - 2 (gamma beta t squared + gamma x squared - t x (1 + beta squared), 2 gamma y (t - beta x), 2 gamma z (t - beta x))"  hspace="56."  WIDTH="753" HEIGHT="51"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+The first term is conserved as expected.&nbsp;&nbsp;The vector portion of the square is frame dependent.
+</P>
+
+
+
+<a name="alt.in_practice"></a>
+<a name="subsection"></a><a name="alt.in_practice" name="subsection" >
+<H4>
+
+Using Quaternions in Practice
+</H4>
+</a>
+<P>
+
+The boost quaternion L is too complex for simple calculations.&nbsp;&nbsp;<I>Mathematica</I> does the grunge work.&nbsp;&nbsp;A great many problems in special relativity do not involve angular momentum, which in effect sets y = z = 0.&nbsp;&nbsp;Further, it is often the case that t = 0, or x = 0, or for Doppler shift problems, x = t.&nbsp;&nbsp;In these cases, the boost quaternion L becomes a very simple.
+</P>
+<P>
+
+If t = 0, then
+</P>
+
+<IMG SRC="Images/s_gr_13.gif"  BORDER="0"   ALT="L = gamma(1, beta, 0, 0)"  hspace="56."  WIDTH="226" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_14.gif"  BORDER="0"   ALT="q -&gt; q prime = L q"  hspace="56."  WIDTH="137" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_15.gif"  BORDER="0"   ALT="(0,x, 0, 0) goes to (t prime, x prime, 0, 0) = (-gamma beta x, gamma x, 0, 0)"  hspace="56."  WIDTH="545" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+If x = 0, then
+</P>
+
+<IMG SRC="Images/s_gr_16.gif"  BORDER="0"   ALT="L= gamma (1, -beta, 0, 0)"  hspace="56."  WIDTH="199" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_17.gif"  BORDER="0"   ALT="q goes to q prime = L q"  hspace="56."  WIDTH="137" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_18.gif"  BORDER="0"   ALT="(t, 0) goes to (t prime, x prime, 0, 0) = (gamma t, - gamma beta t, 0, 0)"  hspace="56."  WIDTH="473" HEIGHT="27"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+If t = x, then
+</P>
+
+<IMG SRC="Images/s_gr_19.gif"  BORDER="0"   ALT="L = gamma (1 - beta, 0, 0, 0)"  hspace="56."  WIDTH="218" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_20.gif"  BORDER="0"   ALT="q goes to q prime = L q"  hspace="56."  WIDTH="137" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_21.gif"  BORDER="0"   ALT="(t, x, 0, 0) goes to (t prime, x prime, 0, 0) = gamma (1-beta)(t, x, 0, 0)"  hspace="56."  WIDTH="555" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+Note: this is for blueshifts.&nbsp;&nbsp;Redshifts have a plus instead of the minus.
+</P>
+<P>
+
+Over 50 problems in a sophomore-level relativistic mechanics class have been solved using quaternions. 90% required this very simple form for the boost quaternion.
+</P>
+
+
+
+<a name="alt.implications"></a>
+<a name="subsection"></a>
+<a name="show"></a><a name="alt.implications" name="subsection" name="show" >
+<P>
+<IMG SRC="Images/s_gr_22.gif"  BORDER="0"  ALT=""  hspace="24."  WIDTH="91" HEIGHT="21"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+Problems in special relativity can be solved either using 4-vectors, the Minkowski metric and the Lorentz group, or using quaternions.&nbsp;&nbsp;No experimental difference between the two methods has been presented.&nbsp;&nbsp;At this point the difference is in the mathematical foundations.
+</P>
+<P>
+
+An immense amount of work has gone into the study of metrics, particular in the field of general relativity.&nbsp;&nbsp;A large effort has gone into group theory and its applications to particle physics.&nbsp;&nbsp;Yet attempts to unite these two areas of study have failed.
+</P>
+<P>
+
+There is no division between events, metrics and operators when solving problems using quaternions.&nbsp;&nbsp;One must be judicious in choosing quaternions that will be relevant to a particular problem in physics and therein lies the skill.&nbsp;&nbsp;Yet this creates hope that by using quaternions, the long division between metrics (the Grassman inner product) and groups of transformations (sets of quaternions that preserve the Grassman inner product) may be bridged.
+</P>
+
+
+
+
+<HR size = "1">
+<CENTER>
+<A HREF="http://greenspun.com/bboard/q-and-a.tcl?topic=quaternions">Quaternion s Question and Answer</a> website
+<BR>
+<BR>
+Next: <A HREF="../../EandM/classicalem/classicalem.html">Classical Electromagnetism</A>
+<P><FONT FACE="Times New Roman, Times, serif"><FONT SIZE=+0><A HREF="../../../index.html">Home
+Page</A> | <A HREF="../../qindex/qindex.html">Quaternion Physics</A> |
+<A HREF="../../../PopScience/PopIndex/PopIndex.html">Pop
+Science</A></FONT></FONT>
+<BR><FONT FACE="Times New Roman, Times, serif"><FONT SIZE=+0><A HREF="../../../java/javaindex.html">Java</A>
+| <A HREF="../../../bike/bike.html">The Bike</A> | <A HREF="../../../LindyHop/LindyHop.html">Lindy
+Hop</A> | <A HREF="mailto:sweetser@alum.mit.edu">Contact Doug</A></FONT></FONT>
+<P><FONT SIZE=-1>Copyright &copy; 1997, doug &lt;sweetser@alum.mit.edu&gt;, All rights reserved
+worldwide.</FONT></CENTER>
+
+<BR>&nbsp;
+</BODY>
+</HTML>

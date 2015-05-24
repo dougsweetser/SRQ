@@ -1,0 +1,504 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+    <title>Doing Physics with Quaternions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="qindex.css">
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9710248-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<style>
+div.figure {
+  float: right;
+  width: 25%;
+}
+.boxed {
+  border: 2px solid red;
+}
+
+div.figure p {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+}
+</style>
+
+</head>
+<body>
+
+<div class="banner">
+<img src="turq_einstein_txyz_doug.jpg" width="680" height="122" border="0" alt="Turquoise Einstein, a quaternion and Doug">
+<img src="banner.680.jpg" width="680" height="122" border="0" name="banner" alt="Doing Physics with Quaternions">
+
+</div>
+
+<div class="figure">
+<a  href="http://visualphysics.org">
+<img style="float:right" width="366" height="244" 
+     src="http://visualphysics.org/sites/default/files/users/user-3/qa/interference_ty_red_blue.povray.100.1000.animation.scan_.gif"/>
+<p>analytical animations at Visual Physics.org</a>
+<p> </p>
+<a href="http://world.std.com/%7Esweetser/quaternions/tshirt/tshirt.html" >
+<img style="float:right" src="http://world.std.com/%7Esweetser/quaternions/tshirt/images/front_eqs_v3_400.png" width="400" height="207" alt="GEM t-shirt" />
+<p>Buy a Unified Standard Model t-shirt! $18 total</p></a>
+    </div>
+
+<div class="section">
+<h2><a href="http://Theworld.com/%7Esweetser/quaternions/video/video.html">Video Ed</a></h2>
+Technical shows, Not-so-technical, quaternion animations, all served up from YouTube.
+Watch and learn!
+</div>
+
+<div class="section">
+    <h2><a href="http://visualphysics.org">Visual Physics.org</a></h2>
+A community research web site centered on visualing quaternions, often motivated by physics.  
+
+</div>
+
+<div class="section">
+    <h2>Math (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/math.pdf">pdf</a>)</h2>
+    <div class="list_of_links">
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/overview/overview.html">
+        An overview</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/history/history.html">
+        A brief history of quaternions</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/multiplying/multiplying.html">
+        Multiplying quaternions the easy way</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/products/products.html">
+        Inner and outer products</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/scalarsvectors/scalarsvectors.html">
+        Scalars, vectors, tensors and all that</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/analysis/analysis.html">Quaternion analysis</a> 
+        (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/analysis.pdf">pdf</a>, 
+        related video: <a href="http://www.archive.org/download/WhyisQMWeird/WhyisQMWeird.mp4">"Why Quantum Mechanics is Weird"</a>)</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/topology/topology.html">
+        Topology</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/math_structure.pdf">
+        Where quaternions fit in math</a>, adapted from Max Tegmark, 1998.</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/intro/tools/tools.html">
+        Tools for algebra, trig, logs...</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/java/qcalc/qcalc.html">
+        Java Quaternion calculator</a></p> - written in Java 1.0, so is broken :-(
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/qemation/Dynamic_graphs/index.html">Dynamic graphs</a></p>
+
+    </div>
+    <br clear="all">
+</div>
+
+
+<div class="section">
+    
+    <h2>Physics</h2>
+
+    <img src="f=ma.315.jpg" width="315" height="105" border="0" alt="Force equals mass times acceleration"/>
+    <h3>Classical Physics (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/classical.pdf">pdf</a>)</h3>
+
+    <div class="list_of_links">
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/classical/2ndLaw/2ndLaw.html">
+        F = m a, in an inertial frame, in polar coordinates, 
+        and in a rotating reference frame</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/classical/sho/sho.html">
+        The simple harmonic oscillator  and wave equation</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/classical/tests/tests.html">
+        4 tests for a conservative force</a></p>
+    </div>
+ 
+    <img src="f=gmmr2.315.jpg" width="315" height="105" border="0" alt="F equals minus G M m over R squared"/>
+    <h3>Unifying Gravity and EM</h3>
+    <div class="boxed">
+    <h4>I am rescinding my efforts to unify gravity and EM using quaternions and hypercomplex numbers.  The quaternions do the work of EM fine and that part of this work is still of value.  The hypercomplex numbers were given the chore of doing gravity.  Under a rotation, the square of a hypercomplex number changes.  As such, when used in a Lagrangian, angular momentum will not be conserved.  Gravity most definitely conserves angular momentum.  There may be things people can learn (how to derive field equations using Lagrange densities, the precession of the perihelion of Mercury, ...).</h4>
+    <h4>Simply put, all of the work, claims, and even the t-shirt, that touch on hypercomplex numbers are WRONG.  I learned a huge amount of real physics anyway.  You might also.  Good luck in your studies of this flawed work.</h4> 
+    <p id="proposal">I think it is reasonable to believe I have found a way to unify gravity 
+    with the forces of electromagnetism, the weak and strong forces in a way that can been quantized.  Only unloved math
+    tools are used.  The problem is a <em>puzzle</em> to be solved, not a math
+    problem so difficult only a few folks at the Institute for Advanced Study to 
+    understand.  At the core is the action, shown here, which requires both quaternions and hypercomplex multiplication
+(indicated by the box-times), keeping only the scalar. My paper is here (
+<a href="http://bit.ly/GEMnb">Mathematica notebook</a>, 
+<a href="http://world.std.com/%7Esweetser/quaternions/gravity/em-g-gem/em-g-gem.html">html</a>, 
+or <a href="http://world.std.com/%7Esweetser/quaternions/ps/em-g-gem.pdf">pdf</a>)</p>
+
+    <img id="img_left" src="EM-G-GEM_actions.png" width="726" height="137" border="0" alt="GEM action">
+  
+    <div class="subsection">
+        <h4>Brief summaries or calculations</h4>
+        <div class="list_of_links">
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/gravity/GEM_action/GEM_action.html">
+            The Unified GEM Action and Symmetries</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/GEM_action.pdf">pdf</a>)</p>
+
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/gravity/GEM_summary/GEM_summary.html">
+            The Unified GEM Lagrangian, Field Equations, and Solutions</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/GEM_summary.pdf">pdf</a>)</p>
+            
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/gravity/precession/precession.html">
+            The Precession of the Perihelion of Mercury Based on the Unifed GEM Proposal</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/precession.pdf">pdf</a>)</p>
+
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/gravity/GEM_derivation/GEM_derivation.html">
+            Derivation of the GEM unified field proposal using quaternions exclusively</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/GEM_derivation.pdf">pdf</a>)</p>
+        </div>    
+    </div>
+
+    <div class="subsection">
+        <h4>Slides from talks</h4>
+        <div class="list_of_links">
+            <p>Geometry + 4-Potentials = Unified Filed Theory, 2007 April APS talk available as <a href="http://theworld.com/%7Esweetser/quaternions/talks/geo_plus_4-potentials/geo_plus_4-potentials.html">html</a> or <a href="http://www.youtube.com/watch?v=p7HyXBuY2dM">YouTube video</a>.
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/talks/riddle/riddle.html">
+            Unifying Gravity and EM, a Riddle You Can Solve</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/riddle.pdf">pdf</a>), 
+            9th Eastern Gravity Meeting, 2006.</p>
+
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/talks/rank1/rank1.html">
+            Why a Rank 1 Unified Field Theory is Compelling and Its Background
+            Mathematical Structure</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/egm8.pdf">pdf</a>), 
+            8th Eastern Gravity Meeting, 2005.</p>
+            
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/talks/General_em/index.html">
+            Unifying Gravity and EM by Generalizing EM</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/general_em.pdf">pdf</a>), 
+            7th Eastern Gravity Meeting, 2004.</p>
+        
+            <p>Unifying gravity and EM by analogies with EM, MIT IAP course, Jan. 2003.</p>
+            <ol>
+                <li><a href="http://theworld.com/%7Esweetser/quaternions/talks/IAP_1/IAP_1.html">
+                Lagrange Densities</a> 
+                (<a href="http://theworld.com/%7Esweetser/quaternions/ps/day1.pdf">pdf</a>, 
+                <a href="http://www.archive.org/download/lecture_1/lecture_1.mp4">video 1</a>, 
+                <a href="http://www.archive.org/download/lecture_2/lecture_2.mp4">video 2</a>)</li>
+
+                <li><a href="http://theworld.com/%7Esweetser/quaternions/talks/IAP_2/IAP_2.html">
+                Fields and Quantum Mechanics</a>  
+                (<a href="http://theworld.com/%7Esweetser/quaternions/ps/day2.pdf">pdf</a>, 
+                <a href="http://www.archive.org/download/TheStandUpPhysicistLecture3of6/IAP_Lecture_3.mp4">video 3</a>, 
+                <a href="http://www.archive.org/download/TheStandUpPhysicistLecture4of6/IAP_Lecture_4.mp4">video 4</a>)</li>
+
+                <li><a href="http://theworld.com/%7Esweetser/quaternions/talks/IAP_3/IAP_3.html">
+                Forces, Metrics, and New Physics</a>  
+                (<a href="http://theworld.com/%7Esweetser/quaternions/ps/day3.pdf">pdf</a>,
+                <a href="http://www.archive.org/download/TheStandUpPhysicistIAPLecture5of6/IAP_Lecture_5.mp4">video 5</a>, 
+                <a href="http://www.archive.org/download/TheStandUpPhysicistIAPLecture6of6/IAP_Lecture_6.mp4">video 6</a>)</li>
+            </ol>
+            
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/talks/Einstein_dreams/Einstein_dreams.html">Realizing 
+            Einstein's Dreams: Unifying Gravity and Light, and Why Quantum Mechanics is Weird</a>  
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/e_dreams.pdf">pdf</a>),
+            Joint APS/AAPT meeting, Spring 2005.</p>
+            
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/talks/4-potential/4-potential.html">
+            4-potential Equations for Gravity and Electromagnetism</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/4-potentials.pdf">pdf</a>), 
+            Joint APS/AAPT meeting, Fall, 2003.</p>
+            
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/talks/product_rule/product_rule.html">
+            The Cosmological Consequences of the Product Rule</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/chain_rule.pdf">pdf</a>),
+            Joint APS/AAPT meeting, Spring, 2004. A Universe with zero dark matter is good :-)</p>
+            
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/talks/picture_stories/picture_stories.html">
+            Picture Stories of Events in Spactime</a> 
+            (<a href="http://theworld.com/%7Esweetser/quaternions/ps/picture_stories.pdf">pdf</a>), Do While Studios, Spring 2000.  
+            The relationship between Special and General relativity using quaternions.
+        </div>
+    </div>
+
+    <div class="subsection">
+       <h4>Papers</h4>
+
+       <img id="img_left" src="metric_or_potential.jpg" width="600" height="270" border="0" alt="metric or potential">
+        
+        <div class="list_of_links">
+            <p><a href="http://world.std.com/%7Esweetser/quaternions/gravity/em-g-gem/em-g-gem.html"><b>A family of variations on the Maxwell action using quaternions and hypercomplex numbers contains the symmetries of the standard model and a testable gravity theory</b></a> (<a href="http://world.std.com/%7Esweetser/quaternions/ps/em-g-gem.pdf">pdf</a>)<br>(my current best effort, version 20091119)
+            <p>OLDER EFFORTS... an approaching using standard tensors and differential geometry</p>
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/gravity/em2gem/em2gem.html">Deducing a Unified Field Theory from Electromagnetism</a> (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/em2gem.pdf">pdf</a>).</p>
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/gravity/analog.v4.iop/analog.v4.iop.html">
+            Unifying Gravity and EM by analogies to EM</a> 
+            (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/analog.v4.iop.pdf">pdf</a>) (v 4.4, 13 pages).
+            <p><a href="http://theworld.com/%7Esweetser/quaternions/gravity/essay/essay.html">Geometry + 4-Potential = Unified Field Theory</a>,
+            submission for the 2007 Essays on Gravitation, sponsored by the Gravity Research foundation (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/essay.pdf">pdf</a>)</p>
+            <p>An approach using quaternions.</p>
+            <p><a href="http://www.theworld.com/%7Esweetser/quaternions/gravity/unified_field/unified_field.html">
+            Einstein's Vision I: Classical unification of gravity and electromagnetism using 
+            Riemannian  quaternions</a> 
+            (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/unified_field.pdf">pdf</a>)
+            
+            <p><a href="http://www.theworld.com/%7Esweetser/quaternions/gravity/unified_force/unified_force.html">
+            Einstein's  Vision II: Unified force with constant velocity profiles</a> 
+            (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/unified_force.pdf">pdf</a>).
+            
+            <p><a href="http://www.theworld.com/%7Esweetser/quaternions/gravity/strings/strings.html">
+            Ropes and Gravity</a></p>
+        </div>
+    </div>
+
+    <div class="subsection">
+        <h4>Posters</h4>
+        <div class="list_of_links">
+        Unifying Gravity and EM by analogies to EM (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/poster.pdf">pdf</a>)
+        Brookhaven National Lab meeting.
+        </div>
+    </div>
+
+    <div class="subsection">
+        <h4>Mathematica notebooks</h4>
+        <div class="list_of_links">
+            From the Lagrange density to experimental tests
+           (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/Lagrangian_to_tests.nb.pdf">pdf</a>, or 
+            <a href="http://www.theworld.com/%7Esweetser/quaternions/notebooks/Lagrangian_to_tests.nb">.nb</a>)
+        </div>
+    </div>
+
+    <div class="subsection">
+        <h4>Videos!</h4>
+        <div class="list_of_links">
+            <p><a href="http://www.theworld.com/%7Esweetser/tsup/tsup.html"><img id="mic" src="the_stand_up_sideways.gif" width="627" height="113" border="2" alt="TheStandUpPhysicist.com"></a></p>
+            <p>will have all my latest video-education efforts.  Enjoy.</p>
+        </div>
+    </div>
+</div> --boxed
+
+    <img src="curl_B.315.jpg" width="315" height="105" border="0" alt="The curl of the B field is zero"/>
+    <h3>Electromagnetism (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/em.pdf">pdf</a>)</h3>
+
+    <div class="list_of_links">
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/EandM/classicalem/classicalem.html">
+        Classical electrodynamics</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/EandM/gauges/gauges.html">
+        Electromagnetic field gauges</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/EandM/qed/qed.html">
+        The Maxwell equations in the light gauge: QED?</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/EandM/LorentzForce/LorentzForce.html">
+        The Lorentz force</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/EandM/tensor/tensor.html">
+        The stress-energy-momentum 2-tensor of the electromagnetic field</a></p>
+
+        <p>Paper: Maxwell's vision: electromagnetism with Hamilton's quaternions 
+        (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/em_w_quaternions.pdf">pdf</a>),
+        Second Meeting on Quaternionic Structures in Mathematics and Physics, Rome, 1999.</p>
+        
+    </div>
+
+    <img src="e=gmc2.315.jpg" width="315" height="105" border="0" alt="energy equals gamma m c squared"/>
+    <h3>Special Relativity (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/sr.pdf">pdf</a>)</h3>
+
+    <div class="list_of_links">
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/rotationdilation/rotationdilation.html">
+        Doing the work of the Lorentz group with rotations and dilations</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/altalgebra/altalgebra.html">
+        An alternative algebra for boosts</a></p>
+   
+        <h4>Problem set solutions from MIT's 8.033, Classical and Relativistic Mechanics</h4>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/index.html">
+        Index and links to solved problems</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/ps1/ps1.html">
+        PS 1: Kinematic effects of relativity</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/ps2/ps2.html">
+        PS 2: More kinematic effects</a></p>
+
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/ps3/ps3.html">
+        PS 3: The Lorentz transformation and the addition of velocities</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/ps4/ps4.html">
+        PS 4: The Doppler effect, 4-vector invariants, and the twin paradox</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/ps5/ps5.html">
+        PS 5: Energy, Mass and Momentum</a></p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/relativity/ps6/ps6.html">
+        PS 6: The Compton effect and  threshold collision problems</a></p>
+
+    </div>
+
+    <img src="phi2.315.jpg" width="315" height="105" border="0" alt="The norm of the wave function phi"/>
+    <h3>Quantum Mechanics (<a href="http://www.theworld.com/%7Esweetser/quaternions/ps/qm.pdf">pdf</a>)</h3>
+
+    <div class="list_of_links">
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/quantum/bracket/bracket.html">
+        Bracket notation and quaternions: quaternions as a complete inner product space</a>.</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/quantum/polar/polar.html">
+        Multiplying polar representations</a>.</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/quantum/uncertainty/uncertainty.html">
+        Commutators and  the uncertainty principle</a>.</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/quantum/spin/spin.html">
+        Unifying the representations of spin and angular momentum</a>.</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/quantum/schrodinger/schrodinger.html">
+        The Schr&ouml;dinger equation</a>.</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/quantum/KleinGordon/KleinGordon.html">
+        The Klein-Gordon equation</a>.</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/quantum/standard_model/standard_model.html">
+        Visualizing the Standard Model</a>.</p>
+        
+        <p><a href="http://www.theworld.com/%7Esweetser/quaternions/quantum/timeReversal/timeReversal.html">
+        Time reversal</a>.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Let's Talk</h2>
+    <img id="img_right" src="dougsketch.jpg" width="80" height="94" border="0"/>
+    <ul>
+        <li>Follow on twitter, the account is "visualphysics"</li>
+
+        <li>Subscribe for new videos on YouTuve, the account is "sweetser"</li>
+        
+        <li><a href="http://greenspun.com/bboard/q-and-a.tcl?topic=quaternions">
+        Quaternion Question and Answer</a>, a site for chatting about quaternions.</li>
+        
+        <li> <a href="mailto:sweetser@alum.mit.edu">Feedback welcome!</a></li>
+     
+        </ul>
+</div>
+
+<div class="sale_item">
+     <h2>Get Stuff</h2>
+
+    <p>For a fee: <a class="sale_item" href="http://world.std.com/%7Esweetser/buttons/order.html">Books</a>, 
+    <a href="http://world.std.com/%7Esweetser/buttons/info.html">Buttons</a>, 
+    <a href="http://www.cafepress.com/quaternions">Turquoise Einstien T-shirts</a>, 
+    and <a href="http://world.std.com/%7Esweetser/quaternions/tshirt/tshirt.html">No Stinking Higgs t-shirts</a></p>
+    <p>For free: <a href="http://www.theworld.com/%7Esweetser/quaternions/ps/book.pdf">Doing Physics with Quaternions</a> (much of this site, 156 pages),
+    <a href="http://www.theworld.com/%7Esweetser/quaternions/ps/lectures.pdf">Lectures on Dynamic Graphs and Unified Field Theory</a> (75 pages).
+    <p></p>    
+    <a class="sale_item" href="http://world.std.com/%7Esweetser/buttons/order.html">
+    <img src="book.210.jpg" width="210" height="176" border="4" alt="Books"/></a>
+
+    <a href="http://world.std.com/%7Esweetser/buttons/info.html">
+    <img src="button.210.jpg" width="210" height="176" border="4" alt="Buttons"/></a>
+    
+    <a href="http://www.cafeshops.com/cp/store.aspx?s=quaternions">
+    <img src="tshirt.210.jpg" width="210" height="176" border="4" alt="Turquoise Einstein t-shirts"/></a>
+
+    <a href="http://world.std.com/%7Esweetser/quaternions/tshirt/tshirt.html">
+    <img src="http://world.std.com/%7Esweetser/quaternions/tshirt/images/front_eqs_210.png" 
+         width="210" height="176" border="4" alt="No Stinkin' Higgs t-shirts"/></a>
+
+    </p>
+    
+    <p>A few good papers:</p>
+    <ol>
+        <li>Sudbery's <a href="http://www.theworld.com/%7Esweetser/quaternions/ps/Quaternionic-analysis-memo.pdf">
+        first paper</a> (memo, 1977, 44 pages) on why quaternion analysis is no good.</li>
+      
+        <li>Sudbery's <a href="http://www.theworld.com/%7Esweetser/quaternions/ps/Quaternionic-analysis.pdf">
+        second paper</a> (1979, 28 pages) on the topic. Please look to my work above 
+        on quaternion analysis for a much better alternative!.</li>
+      
+        <li>C. A. Deavours paper, 
+        <a href="http://www.theworld.com/%7Esweetser/quaternions/ps/deavours.pdf">"The Quaternion Calculus"</a>. 
+        My critique is that using his definition of a quaternion derivative, if a
+        function like f=q is analytic in q, f^2 is not.  That indicates a 
+        better definition must be found before quaternion analysis can really begin.
+      
+        <li>Salamin's <a href="http://www.theworld.com/%7Esweetser/quaternions/ps/stanfordaiwp79-salamin.pdf">paper</a> 
+        (1979, 9 pages) on rotations.</li>
+      
+        <li>Howell and Lafon's  
+        <a href="http://www.theworld.com/%7Esweetser/quaternions/ps/cornellcstr75-245.pdf">paper</a> (1975, 13 pages)
+        on the efficiency of quaternion multiplication.</li>
+
+        <li>Silberstein's <a href="http://www.theworld.com/%7Esweetser/quaternions/ps/Silberstein-Relativity.pdf">paper</a> 
+        (1912, 20 pages) on using biquaternions for quaternion special relativity. 
+        Biquaternions are NOT an algebraic field, and are not used in any operations 
+        on this web site.</li>
+       
+        <li>Resources on gimble lock, a problem that arises from <i>not</i> using quaternions for 
+        3D rotations, links provided by Alex Green: <a href="http://www.hq.nasa.gov/alsj/e-1344.htm">Apollo</a>, 
+        <a href="http://www.hq.nasa.gov/alsj/gimbals.html">A fourth gimbol for Christmas</a>, 
+        <a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19790072987_1979072987.pdf">skylab</a>,
+        <a href="http://uk.youtube.com/watch?v=rrUCBOlJdt4">Gimble Lock - Explained</a>. 
+        Bottom line: always avoid Euler angles.</li>
+    </ol>
+
+</div>
+
+<div class="section">
+    <h2>Donations</h2>
+
+    <form class="section" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="sweetser@world.std.com">
+    <input type="hidden" name="item_name" value="Quaternions and Unified Field Theory Studies">
+    <input type="hidden" name="no_note" value="1">
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="hidden" name="tax" value="0">
+    <input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"> 
+    All work done/financed in my free time.  Woof!</form>
+
+    <script type="text/javascript"><!--
+        google_ad_client = "pub-1498268155832992";
+        google_ad_width = 468;
+        google_ad_height = 60;
+        google_ad_format = "468x60_as";
+        google_ad_type = "text_image";
+        google_ad_channel ="";
+        google_color_border = "DDAAAA";
+        google_color_bg = "ECF8FF";
+        google_color_link = "0033FF";
+        google_color_url = "0033FF";
+        google_color_text = "000000";
+        //-->
+    </script>
+    <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+</div>
+
+<HR/><br/>
+<center>
+<p>
+<a href="http://TheWorld.com/%7Esweetser/index.html">Home Page</a> | 
+<a href="http://TheWorld.com/%7Esweetser/quaternions/qindex/qindex.html">
+Quaternion Physics</a> | <a href="http://TheWorld.com/%7Esweetser/quaternions/qindex/qindex.old.html">
+Old index page</a> | 
+<a href="http://TheWorld.com/%7Esweetser/PopScience/PopIndex/PopIndex.html">
+Pop Science</a>
+<p>
+<a href="http://TheWorld.com/%7Esweetser/java/javaindex.html">Java</a> | 
+<a href="http://TheWorld.com/%7Esweetser/bike/bike.html">The Bike</a> | 
+<a href="http://TheWorld.com/%7Esweetser/LindyHop/LindyHop.html">Lindy Hop</a> | 
+<a href="mailto:sweetser@alum.mit.edu">Contact Doug</a> </p>
+<p><font size="-2">Copyright &copy; 1997, doug &lt;sweetser@alum.mit.edu&gt;
+ All rights reserved worldwide.</font></p>
+ 
+</center>
+</body>
+</html>

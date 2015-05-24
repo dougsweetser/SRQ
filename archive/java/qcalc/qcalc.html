@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.04 [en] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Doug Sweetser">
+   <TITLE>Q calc</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#EEEEEE" LINK="#000000" VLINK="#800080" ALINK="#0000FF">
+<CENTER><APPLET CODE="Qcalc.class"
+width="800" height="450"></APPLET></CENTER>
+
+<CENTER><TABLE COLS=1 WIDTH="520" >
+<TR>
+<TD>
+<CENTER>
+          <FONT SIZE=+1>A Quaternion Calculator</FONT>
+</CENTER>
+
+<CENTER>
+          <FONT SIZE=-1> Copyright&copy; 1998, Doug Sweetser, All rights reserved 
+          worldwide.</FONT> <br>
+        </CENTER>
+<BR>
+<CENTER><FONT SIZE=-1></FONT></CENTER>
+        <p>This is a calculator that can take real, complex numbers or quaternions 
+          as input, using the scalar, i, j and k buttons for each part. Results 
+          are obtained using the &quot;=&quot; button in the upper corner, and 
+          previous result(s) can be seen by pressing the &quot;ans&quot; or &quot;entry&quot; 
+          buttons. </p>
+        <p>Addition and subtraction remain the same for these fields, but multiplication 
+          and division get more complicated.&nbsp; </p>
+        <P>Regular multiplication and division becomes what I call the Grassman
+product, "x", and Grassman division, "/". Since quaternions do not in general
+commute, these get split into the even "&lt;x>" and odd ">x&lt;" parts
+which together add up to "x".&nbsp;
+<UL>
+<LI>
+q1 &lt;x> q2&nbsp; =&nbsp; q2 &lt;x> q1</LI>
+
+<LI>
+q1 >x&lt; q2&nbsp; = -q2 >x&lt; q2</LI>
+
+<LI>
+q1 &lt;x> q2 + q1 >x&lt; q2&nbsp; =&nbsp; q1 x q2</LI>
+</UL>
+There are three imaginary vectors, i, j and k.&nbsp; The complement of
+a quaternion flips the sign of the these vectors.&nbsp; The Euclidean product
+"*" and Euclidean division "\" are formed from taking the complement of
+the first quaternion before carrying out the operation.&nbsp; Both of these
+can be split into even and odd parts.&nbsp;
+
+<P>Two of these fancy multiplications are actually quite familiar.&nbsp;
+The Grassman outer product ">x&lt;" is better known as the cross product.&nbsp;
+The even Euclidean product "&lt;*>" is the Euclidean norm.&nbsp; The scalar
+part of the Grassman inner product "&lt;x>" looks just like the invariant
+interval found in special relativity.&nbsp; The outer Euclidean product
+">*&lt;" is still a mystery, but my money says it is related to that mystery
+known as spin (since ">x&lt;" deals with angular momentum).&nbsp;
+
+<P>Some patterns to think about...&nbsp;
+
+<P>If only real numbers are used,&nbsp;
+<BR>there is no difference between any Grassman and Euclidean products,
+and all odd products are zero.&nbsp;
+
+<P>If only complex numbers are used, the odd Grassman product ">x&lt;"
+is zero, but not the odd Euclidean product ">*&lt;".&nbsp;
+
+<P>No matter what kind of number is used, the vector part of the even Euclidean
+product "&lt;*>" is zero.&nbsp;
+
+<P>No matter what kind of number is used, the vector part of the even Euclidean
+product "&lt;*>" is zero.&nbsp;
+
+<P>Identical statements apply to the divisions.&nbsp;
+
+<P>And most important of all, no matter what kind of number is used, the
+Grassman product "x" and the Euclidean product "*"&nbsp; are not zero unless
+one input is zero.&nbsp;
+
+<P>Of course, you may say, "I don't think this will show up in a supermarket
+anytime soon."&nbsp;
+<BR>Oh well&nbsp; :-)&nbsp;
+<BR>&nbsp;
+
+<P>I reserve all rights to this software.&nbsp; Visit and play as you like,
+but if you want to use the engine behind this for 3D animations, let's
+talk.&nbsp; That's the direction I am headed...&nbsp;
+
+<P>Doug</TD>
+</TR>
+</TABLE></CENTER>
+&nbsp; <!-- #BeginLibraryItem "/Library/links, level 2.lbi" --><HR SIZE=1 WIDTH="100%">
+<CENTER>
+  <A HREF="../../index.html"><font face="Times New Roman, Times, serif" size="3">Home 
+  Page</font></A><font face="Times New Roman, Times, serif" size="3"> 
+| <a href="../../quaternions/qindex/qindex.html">Quaternion 
+  Physics</a> | <A HREF="../../PopScience/PopIndex/PopIndex.html">Pop Science</A> 
+  <br>
+  <a href="../javaindex.html">Java</a> | <a href="../../bike/bike.html">The 
+  Bike</a> | <A HREF="../../LindyHop/LindyHop.html">Lindy Hop</A> | <A HREF="mailto:sweetser@alum.mit.edu">Contact 
+  Doug</A></font> 
+</CENTER>
+
+<CENTER>&nbsp;</CENTER>
+
+<CENTER>
+  <font size="1">Copyright &copy; 1997, Doug Sweetser, All rights reserved worldwide.</font>
+</CENTER>
+
+<!-- #EndLibraryItem --> 
+<CENTER>
+</CENTER>
+<BR>
+<img src="/cgi-bin/Count.cgi?sh=0|df=p08.dat">
+</BODY>
+</HTML>

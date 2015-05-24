@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+
+<!-- This HTML document was created by converting a Mathematica notebook using HTMLSave. -->
+
+
+
+<HTML>
+
+
+<HEAD >
+
+<TITLE>
+  The Lorentz Group Uning Rotations and Dilations
+</TITLE>
+
+
+
+</HEAD>
+
+
+<BODY BGCOLOR="#FFFFFF">
+
+
+
+<a name="rotationdilation"></a>
+<a name="section"></a><a name="rotationdilation" name="section" >
+<H3>
+
+Rotations and Dilations Create the Lorentz Group
+</H3>
+</a>
+
+<a name="webtoc"></a>
+<a name="minus_tex"></a><a name="webtoc" name="minus_tex" >
+<P><FONT COLOR="#0000FF"><a href="#rd.rotations">Rotations + dilations</a></FONT><br><FONT COLOR="#0000FF"><a href="#rd.implications">Implications</a></FONT></P>
+
+</a>
+<P>
+
+In 1905, Einstein proposed the principles of special relativity without a deep knowledge of the mathematical structure behind the work.&nbsp;&nbsp;He had to rely on his old math teacher Minkowski to learn the theory of transformations (I do not know the details of Einstein's education, but it could make an interesting discussion :-)&nbsp;&nbsp;Eventually, Einstein understood general transformations, embodied in the work of Riemann, well enough to formulate general relativity.
+</P>
+<P>
+
+A. W. Conway and L. Silberstein proposed a different mathematical structure behind special relativity in 1911 and 1912 respectively (a copy of Silberstein's work is on the web.&nbsp;&nbsp;Henry Baker has made it available at ftp://ftp.netcom.com/pub/hb/hbaker/quaternions/).&nbsp;&nbsp;Cayley had observed back in 1854 that rotations in 3D could be achieved using a pair of quaternions with a norm of one:
+</P>
+
+<IMG SRC="Images/s_gr_1.gif"  BORDER="0"   ALT="q prime = a q b  where  a conj a = b conj b = 1"  hspace="56."  WIDTH="331" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+If this works in 3D space, why not do the 4D transformations of special relativity?&nbsp;&nbsp;It turns out that a and b must be complex-valued quaternions, or biquaternions.&nbsp;&nbsp;Is this so bad?&nbsp;&nbsp;Let me quote P.A.M. Dirac (Proc. Royal Irish Academy A, 1945, 50, p. 261):
+</P>
+<P>
+
+Quaternions themselves occupy a unique place in mathematics in that they are the most general quantities that satisfy the division axiom--that the product of two factors cannot vanish without either factor vanishing.&nbsp;&nbsp;Biquaternions do not satisfy this axiom, and do not have any fundamental property which distinguishes them from other hyper-complex numbers.&nbsp;&nbsp;Also, they have eight components, which is rather too many for a simple scheme for describing quantities in space-time.
+</P>
+<P>
+
+Just for the record: plenty of fine work has been done with biquaternions, and I do not deny the validity of any of it.&nbsp;&nbsp;Much effort has been directed toward &quot;other hyper-complex numbers&quot;, such as Clifford algebras.&nbsp;&nbsp;For the record, I am making a choice to focus on quaternions for reasons outlined by Dirac.
+</P>
+<P>
+
+Dirac took a Mobius transformation from complex analysis and tried to develop a quaternion analog.&nbsp;&nbsp;The approach is too general, and must be restricted to graft the results to the Lorentz group.&nbsp;&nbsp;I personally have found this approach hard to follow, and have yet to build a working model of it in Mathematica.&nbsp;&nbsp;I needed something simpler :-)
+</P>
+
+
+<a name="rd.rotations"></a>
+<a name="subsection"></a><a name="rd.rotations" name="subsection" >
+<H4>
+
+Rotation + Dilation
+</H4>
+</a>
+<P>
+
+Multiplication of complex numbers can be thought of as a rotation and a dilation.&nbsp;&nbsp;Conway and Silberstein's proposals only have the rotation component.&nbsp;&nbsp;An additional dilation term might allow quaternions to do the necessary work.
+</P>
+<P>
+
+C. M&ouml;ller wrote a general form for a Lorentz transformation using vectors (&quot;The Theory of Relativity&quot;, QC6 F521, 1952, eq. 25). For fixed collinear coordinate systems:
+</P>
+
+<IMG SRC="Images/s_gr_2.gif"  BORDER="0"   ALT="X prime = X + (gamma - 1)(V dot X)V over the absolute value of V squared   -  gamma t V"  hspace="56."  WIDTH="381" HEIGHT="50"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_3.gif"  BORDER="0"   ALT="t prime = gamma t - gamma (V dot X)"  hspace="56."  WIDTH="181" HEIGHT="23"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_4.gif"  BORDER="0"   ALT="where c = 1, gamma = 1 over root 1 - (v/c) squared "  hspace="56."  WIDTH="317" HEIGHT="47"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+If V is only in the i direction, then
+</P>
+
+<IMG SRC="Images/s_gr_5.gif"  BORDER="0"   ALT="X prime = (gammaX - gamma t V ) i hat + y j hat + z k hat"  hspace="56."  WIDTH="305" HEIGHT="24"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_6.gif"  BORDER="0"   ALT="t prime = gamma t - gamma(V dot X)"  hspace="56."  WIDTH="181" HEIGHT="23"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+The additional complication to the X' equation handles velocities in different directions than i.
+</P>
+<P>
+
+This has a vector equation and a scalar equation.&nbsp;&nbsp;A quaternion equation that would generate these terms must be devoid of any terms involving cross products.&nbsp;&nbsp;The symmetric product (anti-commutator) lacks the cross product;
+</P>
+
+<IMG SRC="Images/s_gr_7.gif"  BORDER="0"   ALT="even(q, q prime) = (q q prime + q prime q) = (t t prime - X dot X prime, t X + X t prime)"  hspace="56."  WIDTH="550" HEIGHT="38"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+M&ouml;ller's equation looks like it should involve two terms, one of the form AqA (a rotation), the other Bq (a dilation).
+</P>
+
+<IMG SRC="Images/s_gr_8.gif"  BORDER="0"   ALT="q prime = q + (gamma - 1) even(even (V conjugate,q),V) over absolute value of V squared  +  gamma even(V conjugate, q conjugate)="  hspace="56."  WIDTH="607" HEIGHT="53"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_9.gif"  BORDER="0"   ALT="= q + (gamma - 1)even(even(V dot X, - t V),(0,V)) over absolute value of V squared   +  gamma even((0, -V), (t, -X)) ="  hspace="56."  WIDTH="727" HEIGHT="50"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_10.gif"  BORDER="0"   ALT="= (t,X) + (gamma - 1)(t, (V dot X)V/absolute value of V squared) - gamma((V dot X), t V)"  hspace="56."  WIDTH="560" HEIGHT="50"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+This is the general form of the Lorentz transformation presented by M&ouml;ller.&nbsp;&nbsp;Real quaternions are used in a rotation and a dilation to perform the work of the Lorentz group.
+</P>
+
+
+
+<a name="rd.implications"></a>
+<a name="subsection"></a><a name="rd.implications" name="subsection" >
+<H4>
+
+Implications
+</H4>
+</a>
+<P>
+
+Is this result at all interesting?&nbsp;&nbsp;A straight rewrite of M&ouml;ller's equation would have been dull.&nbsp;&nbsp;What is interesting is the equation which generates the Lorentz transformation.&nbsp;&nbsp;Notice how the Lorentz transformation depends linearly on q, but the generator depends on q and q*.&nbsp;&nbsp;That may have interesting interpretations.&nbsp;&nbsp;The generator involves only symmetric products.&nbsp;&nbsp;There has been some question in the literature about whether special relativity handles rotations correctly.&nbsp;&nbsp;This is probably one of the more confusing topics in physics, so I will just let the observation stand by itself.
+</P>
+<P>
+
+Two ways exist to use quaternions to do Lorentz transformations (to be discussed in the next web page).&nbsp;&nbsp;The other technique relies on the property of a division algebra.&nbsp;&nbsp;There exists a quaternion L such that:
+</P>
+
+<IMG SRC="Images/s_gr_11.gif"  BORDER="0"   ALT="q prime = L q such that"  hspace="56."  WIDTH="186" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_12.gif"  BORDER="0"   ALT="scalar(q prime, q prime) = scalar(q, q) = t squared - X dot X"  hspace="56."  WIDTH="448" HEIGHT="23"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+For a boost along the i direction,
+</P>
+
+<IMG SRC="Images/s_gr_13.gif"  BORDER="0"   ALT="L = q prime over q = (gamma t - gamma v x, -gamma v t + gamma x, y, z) times (t, -x, -y, -z) over (t squared + x squared + y squared + z squared ) ="  hspace="56."  WIDTH="654" HEIGHT="42"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_14.gif"  BORDER="0"   ALT="= (gamma t squared - 2 gamma t v x+ gamma x squared  +y squared +z squared , gamma v (-t squared + x squared ), t y - x z - gamma t (y + v z) + gamma x (v y + z), t z + xy + gamma t(v y - z) + gamma x(-y + v z)) over (t squared + x squared + y squared + z squared )"  hspace="56."  WIDTH="628" HEIGHT="69"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_15.gif"  BORDER="0"   ALT="if x = y = z = 0, then  L = (gamma, -gamma v, 0, 0)"  hspace="56."  WIDTH="453" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+
+<IMG SRC="Images/s_gr_16.gif"  BORDER="0"   ALT="if t = y = z = 0, then  L = (gamma, gamma v, 0, 0)"  hspace="56."  WIDTH="436" HEIGHT="20"  ALIGN="absmiddle" ></P>
+</a>
+<P>
+
+The quaternion L depends on the velocity and can depend on location in spacetime (85% of the type of problems assigned undergraduates in special relativity use an L that does not depend on location in spacetime).&nbsp;&nbsp;Some people view that as a bug, but I see it as a modern feature found in the standard model and general relativity as the demand that all symmetry is local.&nbsp;&nbsp;The existence of two approaches may be of interest in itself.
+</P>
+
+
+
+
+<HR size = "1">
+<CENTER>
+<A HREF="http://greenspun.com/bboard/q-and-a.tcl?topic=quaternions">Comments & Questions</a>
+<BR>
+<BR>
+Next: <A HREF="../altalgebra/altalgebra.html">An Alternative Algebra for Boosts</A>
+<P><FONT FACE="Times New Roman, Times, serif"><FONT SIZE=+0><A HREF="../../../index.html">Home
+Page</A> | <A HREF="../../qindex/qindex.html">Quaternion Physics</A> |
+<A HREF="../../../PopScience/PopIndex/PopIndex.html">Pop
+Science</A></FONT></FONT>
+<BR><FONT FACE="Times New Roman, Times, serif"><FONT SIZE=+0><A HREF="../../../java/javaindex.html">Java</A>
+| <A HREF="../../../bike/bike.html">The Bike</A> | <A HREF="../../../LindyHop/LindyHop.html">Lindy
+Hop</A> | <A HREF="mailto:sweetser@alum.mit.edu">Contact Doug</A></FONT></FONT>
+<P><FONT SIZE=-1>Copyright &copy; 1997, doug &lt;sweetser@alum.mit.edu&gt;  All rights reserved
+worldwide</FONT></CENTER>
+
+<BR>&nbsp;
+</BODY>
+</HTML>
