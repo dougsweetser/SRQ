@@ -2882,7 +2882,7 @@ twitter: visualphysics
 
 If it is really important to you, a google hangout can be arranged.
 
-{! /Users/doug/Q/docs/About/web_sites.md !}
+{! /Users/doug/Documents/Q/docs/About/web_sites.md !}
 
 ## Tip Jar
 
